@@ -26,4 +26,4 @@ if user_input == "where to walk a dog":
     elif answer == "yes":
         print("Thank you!")
 else:
-    print("I still get enough data to learn that.")
+    print("I still didn't get enough data to learn that.")
