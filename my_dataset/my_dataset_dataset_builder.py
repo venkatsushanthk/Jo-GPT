@@ -17,7 +17,7 @@ class Builder(tfds.core.GeneratorBasedBuilder):
     return self.dataset_info_from_configs(
         features=tfds.features.FeaturesDict({
             # These are the features of your dataset like images, labels ...
-            'image': tfds.features.Image(shape=(None, None, 3)),
+            'prompt': tfds.features.text(shape=(None, None, 3)),
             'label': tfds.features.ClassLabel(names=['no', 'yes']),
         }),
         # If there's a common (input, target) tuple from the
@@ -40,7 +40,7 @@ class Builder(tfds.core.GeneratorBasedBuilder):
   def _generate_examples(self, path):
     """Yields examples."""
     # TODO(my_dataset): Yields (key, example) tuples from the dataset
-    for f in path.glob('*.jpeg'):
+    for f in path.glob('*.txt'):
       yield 'key', {
           'image': f,
           'label': 'yes',
